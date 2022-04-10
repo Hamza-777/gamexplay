@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+  gap: 2rem;
+}
+
+.navbar,
+.controls {
+  width: 100%;
+}
+
+.navbar-left > .h2 {
+  font-family: var(--font-grapenuts);
+}
+
+.controls {
+  gap: 3rem;
+}
+
+.active-control {
+  color: var(--red-color);
+  border-bottom: 1px solid var(--red-color);
+}

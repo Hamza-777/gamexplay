@@ -1,0 +1,16 @@
+.container {
+  margin-top: 126.4px;
+  width: 100%;
+  padding: 2rem 3rem;
+}
+
+.video-listings {
+  width: 100%;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.video-listings > .h3 {
+  border-left: 5px solid var(--red-color);
+  padding: 0 2rem;
+}
