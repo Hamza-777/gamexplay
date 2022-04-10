@@ -7,10 +7,10 @@
   background-color: transparent;
   backdrop-filter: blur(3px);
   gap: 2rem;
+  z-index: 9;
 }
 
-.navbar,
-.controls {
+.navbar {
   width: 100%;
 }
 
@@ -18,11 +18,18 @@
   font-family: var(--font-grapenuts);
 }
 
-.controls {
+.navbar-right {
   gap: 3rem;
 }
 
-.active-control {
+.btn-login {
+  border: 1px solid var(--red-color);
+  padding: 0.5rem 1.5rem;
   color: var(--red-color);
-  border-bottom: 2px solid var(--red-color);
+  border-radius: 4px;
+  transition: var(--default-transition);
+}
+
+.btn-login:hover {
+  transform: scale(1.1);
 }

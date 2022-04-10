@@ -1,0 +1,11 @@
+.empty-page {
+  width: 100%;
+  background-color: var(--grey-2-color);
+  border-radius: 4px;
+  gap: 4rem;
+}
+
+.empty-image {
+  font-size: 28rem;
+  color: var(--red-color);
+}

@@ -1,0 +1,12 @@
+.watchlater {
+  gap: 3rem;
+}
+
+.watchlater > .h2 {
+  border-left: 5px solid var(--red-color);
+  padding: 0 2rem;
+}
+
+.watchlater-vids {
+  gap: 2rem;
+}

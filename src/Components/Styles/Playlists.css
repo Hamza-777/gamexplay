@@ -1,0 +1,12 @@
+.playlists {
+  gap: 3rem;
+}
+
+.playlists > .h2 {
+  border-left: 5px solid var(--red-color);
+  padding: 0 2rem;
+}
+
+.playlists-vids {
+  gap: 2rem;
+}

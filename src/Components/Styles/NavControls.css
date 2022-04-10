@@ -1,0 +1,20 @@
+.controls {
+  width: 100%;
+  gap: 3rem;
+}
+
+.controls .btn {
+  position: relative;
+}
+
+.trans {
+  position: absolute;
+  inset: 0;
+  background-color: transparent;
+  z-index: 11;
+}
+
+.active-control {
+  color: var(--red-color);
+  border-bottom: 2px solid var(--red-color);
+}
