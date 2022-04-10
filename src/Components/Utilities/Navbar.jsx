@@ -4,13 +4,16 @@ import { BsSunFill } from 'react-icons/bs';
 import { IoIosTrendingUp } from 'react-icons/io';
 import { MdOutlineWatchLater, MdPlaylistAdd } from 'react-icons/md';
 import { VscHistory, VscHome } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <header className='header flex-center flex-col'>
       <nav className='navbar flex-center justify-between'>
         <div className='navbar-left'>
-          <h1 className='h2'>Game❌Play</h1>
+          <Link to='/'>
+            <h1 className='h2'>Game❌Play</h1>
+          </Link>
         </div>
         <div className='navbar-right'>
           <BsSunFill className='icon sun' />
