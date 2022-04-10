@@ -11,33 +11,38 @@ const Home = () => {
     <main className='container'>
       <Display />
       <section className='video-listings flex-center flex-col align-start'>
-        <h1 className='h3' id='valorant'>
+        <hr className='hr' />
+        <p className='h3' id='valorant'>
           Valorant
-        </h1>
+        </p>
         <VideoList
           videos={videos.filter((video) => video._id.includes('valorant'))}
         />
-        <h1 className='h3' id='csgo'>
+        <hr className='hr' />
+        <p className='h3' id='csgo'>
           Counter Strike: Global Offensive
-        </h1>
+        </p>
         <VideoList
           videos={videos.filter((video) => video._id.includes('csgo'))}
         />
-        <h1 className='h3' id='fortnite'>
+        <hr className='hr' />
+        <p className='h3' id='fortnite'>
           Fortnite
-        </h1>
+        </p>
         <VideoList
           videos={videos.filter((video) => video._id.includes('fortnite'))}
         />
-        <h1 className='h3' id='lol'>
+        <hr className='hr' />
+        <p className='h3' id='lol'>
           League Of Legends
-        </h1>
+        </p>
         <VideoList
           videos={videos.filter((video) => video._id.includes('lol'))}
         />
-        <h1 className='h3' id='minecraft'>
+        <hr className='hr' />
+        <p className='h3' id='minecraft'>
           Minecraft
-        </h1>
+        </p>
         <VideoList
           videos={videos.filter((video) => video._id.includes('minecraft'))}
         />
