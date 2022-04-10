@@ -1,0 +1,9 @@
+.footer {
+  padding: 2rem 3rem;
+  border-top: 2px solid var(--red-color);
+}
+
+.contact {
+  width: 100%;
+  gap: 3rem;
+}
