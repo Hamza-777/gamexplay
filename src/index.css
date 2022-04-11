@@ -279,16 +279,27 @@ input[type='radio'] {
   background: var(--grey-9-color);
 }
 
-/* COLOR IDS */
-.light-color {
+/* BG + COLOR classes */
+.dark-bgcolor {
   color: var(--light-color);
   background: var(--dark-color);
   transition: var(--default-transition);
 }
 
-.dark-color {
+.light-bgcolor {
   color: var(--dark-color);
   background: var(--light-color);
+  transition: var(--default-transition);
+}
+
+/* COLOR classes */
+.light-color {
+  color: var(--light-color);
+  transition: var(--default-transition);
+}
+
+.dark-color {
+  color: var(--dark-color);
   transition: var(--default-transition);
 }
 

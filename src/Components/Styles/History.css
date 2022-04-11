@@ -1,0 +1,12 @@
+.history {
+  gap: 3rem;
+}
+
+.history > .h2 {
+  border-left: 5px solid var(--red-color);
+  padding: 0 2rem;
+}
+
+.history-vids {
+  gap: 2rem;
+}

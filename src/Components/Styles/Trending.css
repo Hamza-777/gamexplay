@@ -1,0 +1,41 @@
+.trending {
+  gap: 3rem;
+}
+
+.filter-options {
+  width: 100%;
+  overflow: auto;
+  gap: 3rem;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--grey-2-color);
+  border-radius: 4px;
+}
+
+.btn-filter {
+  border: 2px solid var(--red-color);
+  color: red;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  transition: var(--default-transition);
+}
+
+.btn-filter:hover {
+  transform: scale(0.98);
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+
+.filter-active {
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+
+.trending > .h2 {
+  border-left: 5px solid var(--red-color);
+  padding: 0 2rem;
+}
+
+.trending-vids {
+  gap: 2rem;
+}

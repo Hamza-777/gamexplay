@@ -1,0 +1,25 @@
+.video-box {
+  width: 25rem;
+}
+
+.video {
+  width: 25rem;
+  height: 15rem;
+  transition: var(--default-transition);
+}
+
+.vid-title {
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.vid-controls {
+  margin-top: 1rem;
+  margin-left: auto;
+  gap: 3rem;
+}
