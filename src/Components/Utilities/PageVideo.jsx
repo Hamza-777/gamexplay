@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdOutlineWatchLater, MdPlaylistAdd } from 'react-icons/md';
-import { FcLike, FcDislike } from 'react-icons/fc';
+import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 
 const PageVideo = ({
   currentVideo: { title, vidSrc, creator, creatorImg },
@@ -18,12 +18,18 @@ const PageVideo = ({
       <p className='h4'>{title}</p>
       <aside className='videopage-controls flex-center justify-between'>
         <div className='controls-left flex-center'>
-          1.2M views | 21st Jan 2020
+          1.2M views - 21st Jan 2020
         </div>
         <div className='controls-right flex-center'>
-          <FcLike className='icon' />
-          <FcDislike className='icon' />
+          <div className='grp flex-center'>
+            <AiOutlineLike className='icon' />
+            <p className='h6'>100K</p>
+          </div>
+          {'|'}
+          <AiOutlineDislike className='icon' />
+          {'|'}
           <MdOutlineWatchLater className='icon' />
+          {'|'}
           <MdPlaylistAdd className='icon' />
         </div>
       </aside>

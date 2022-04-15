@@ -21,6 +21,10 @@
   gap: 1rem;
 }
 
+.grp {
+  gap: 0.5rem;
+}
+
 .channel-details {
   gap: 2rem;
   margin-bottom: 1rem;
@@ -57,6 +61,11 @@
   border-bottom: 2px solid var(--grey-5-color);
 }
 
+.comment-input:hover,
+.comment-input:focus {
+  border-color: var(--red-color);
+}
+
 .btn-comment {
   border: 1px solid var(--red-color);
   padding: 0.5rem 1.5rem;
@@ -70,6 +79,48 @@
   transform: scale(1.1);
 }
 
+.comments-container {
+  width: 100%;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.comment {
+  gap: 1rem;
+}
+
+.comment-details {
+  gap: 0.5rem;
+}
+
+.user-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
 .must-watch {
   gap: 1.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .misc-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .comment-section {
+    width: 100%;
+    order: 2;
+  }
+
+  .must-watch {
+    width: 100%;
+  }
+
+  .must-watch-videos {
+    flex-direction: row;
+    overflow: auto;
+    gap: 2rem;
+  }
 }

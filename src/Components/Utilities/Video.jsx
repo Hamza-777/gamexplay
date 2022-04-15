@@ -5,9 +5,17 @@ import { Link } from 'react-router-dom';
 import '../Styles/Video.css';
 
 const Video = ({ video: { _id, title, vidSrc, creator, creatorImg } }) => {
+  const scrollToTop = (e) => {
+    window.scrollTo(0);
+  };
+
   return (
     <aside className='video-box flex-center flex-col align-start'>
-      <Link to={`/video/${_id}`} className='video-img-container'>
+      <Link
+        to={`/video/${_id}`}
+        className='video-img-container'
+        onClick={scrollToTop}
+      >
         <img
           src={`https://i.ytimg.com/vi/${vidSrc}/maxresdefault.jpg`}
           alt={title}
@@ -17,17 +25,13 @@ const Video = ({ video: { _id, title, vidSrc, creator, creatorImg } }) => {
           <FiPlay className='play-icon' />
         </div>
       </Link>
-      {/* <iframe
-        title={title}
-        src={`https://www.youtube.com/embed/${vidSrc}?&autoplay=0`}
-        frameBorder='0'
-        controls='0'
-        fs='0'
-        className='video'
-      ></iframe> */}
       <section className='video-info flex-center'>
         <img src={creatorImg} alt={creator} className='creator-img' />
-        <Link to={`/video/${_id}`} className='h5 vid-title light-color'>
+        <Link
+          to={`/video/${_id}`}
+          className='h5 vid-title light-color'
+          onClick={scrollToTop}
+        >
           {title}
         </Link>
       </section>

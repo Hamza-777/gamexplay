@@ -23,13 +23,17 @@ const VideoPage = () => {
         <CommentSection />
         <aside className='must-watch flex flex-col'>
           <p className='h3'>Must Watch</p>
-          {videos &&
-            videos.map((video, idx) => (
-              <Fragment key={idx}>
-                <Video video={video} />
-                <hr className='hr' />
-              </Fragment>
-            ))}
+          <div className='must-watch-videos flex flex-col'>
+            {videos &&
+              videos.map((video, idx) =>
+                video._id !== videoId ? (
+                  <Fragment key={idx}>
+                    <Video video={video} />
+                    <hr className='hr' />
+                  </Fragment>
+                ) : null
+              )}
+          </div>
         </aside>
       </section>
     </main>
