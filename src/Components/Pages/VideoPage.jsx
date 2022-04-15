@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useVideo } from '../Providers/VideoProvider';
 import PageVideo from '../Utilities/PageVideo';
@@ -18,11 +18,18 @@ const VideoPage = () => {
   return (
     <main className='video-page container'>
       {currentVideo && <PageVideo currentVideo={currentVideo} />}
-      <section className='flex-center'>
+      <hr className='hr' />
+      <section className='misc-container flex-center align-start'>
         <CommentSection />
         <aside className='must-watch flex flex-col'>
+          <p className='h3'>Must Watch</p>
           {videos &&
-            videos.map((video, idx) => <Video key={idx} video={video} />)}
+            videos.map((video, idx) => (
+              <Fragment key={idx}>
+                <Video video={video} />
+                <hr className='hr' />
+              </Fragment>
+            ))}
         </aside>
       </section>
     </main>
