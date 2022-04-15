@@ -6,6 +6,7 @@ import Navbar from './Components/Utilities/Navbar';
 import Watchlater from './Components/Pages/Watchlater';
 import History from './Components/Pages/History';
 import Playlists from './Components/Pages/Playlists';
+import VideoPage from './Components/Pages/VideoPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/video/:videoId' element={<VideoPage />} />
         <Route path='/trending' element={<Trending />} />
         <Route path='/watchlater' element={<Watchlater />} />
         <Route path='/history' element={<History />} />

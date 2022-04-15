@@ -1,0 +1,28 @@
+.video-container {
+  gap: 1rem;
+}
+
+.video {
+  width: 100%;
+  height: 32rem;
+}
+
+.videopage-controls {
+  width: 100%;
+}
+
+.controls-right {
+  gap: 1rem;
+}
+
+.channel-details {
+  gap: 2rem;
+}
+
+.channel-logo {
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  object-fit: contain;
+}
