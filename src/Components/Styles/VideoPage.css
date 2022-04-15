@@ -103,6 +103,10 @@
   gap: 1.5rem;
 }
 
+.must-watch-videos {
+  gap: 2rem;
+}
+
 @media screen and (max-width: 900px) {
   .misc-container {
     flex-direction: column;
