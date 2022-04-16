@@ -53,3 +53,9 @@
 .trending-vids {
   gap: 2rem;
 }
+
+@media screen and (max-width: 900px) {
+  .filter-options {
+    justify-content: flex-start;
+  }
+}

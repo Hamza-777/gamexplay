@@ -8,12 +8,22 @@
   cursor: pointer;
 }
 
+.video-img-horizontal {
+  width: 10rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
 .video-img-container {
   position: relative;
 }
 
 .video-img-container:hover .fader {
   opacity: 1;
+}
+
+.box-horizontal {
+  gap: 1rem;
 }
 
 .fader {
@@ -31,9 +41,13 @@
   transition: var(--default-transition);
 }
 
-.play-icon:hover {
-  font-size: 7rem;
-  color: var(--white-color);
+.about-page {
+  height: 100%;
+  align-items: flex-start;
+}
+
+.views {
+  margin-top: 0.5rem;
 }
 
 .video-info {
@@ -73,24 +87,4 @@
   margin-top: 1rem;
   margin-left: auto;
   gap: 1rem;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }

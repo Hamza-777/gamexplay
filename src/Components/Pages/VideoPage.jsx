@@ -4,7 +4,7 @@ import { useVideo } from '../Providers/VideoProvider';
 import PageVideo from '../Utilities/PageVideo';
 import '../Styles/VideoPage.css';
 import CommentSection from '../Utilities/CommentSection';
-import Video from '../Utilities/Video';
+import VideoHorizontal from '../Utilities/VideoHorizontal';
 
 const VideoPage = () => {
   const { videoId } = useParams();
@@ -27,10 +27,7 @@ const VideoPage = () => {
             {videos &&
               videos.map((video, idx) =>
                 video._id !== videoId ? (
-                  <Fragment key={idx}>
-                    <Video video={video} />
-                    <hr className='hr' />
-                  </Fragment>
+                  <VideoHorizontal key={idx} video={video} />
                 ) : null
               )}
           </div>
