@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useReducer,
 } from 'react';
+import { randomizeArray } from '../Misc/randomizeArray';
 import axios from 'axios';
 
 const videoContext = createContext(null);
@@ -14,13 +15,13 @@ const reducer = (state, { type, payload }) => {
     case 'GET_ALL':
       return {
         ...state,
-        vids: payload.videos,
+        vids: randomizeArray(payload.videos),
       };
     case 'GET_SINGLE':
       return {
         ...state,
-        vids: payload.videos.filter((video) =>
-          video._id.includes(payload.category)
+        vids: randomizeArray(
+          payload.videos.filter((video) => video._id.includes(payload.category))
         ),
       };
     default:
@@ -37,7 +38,7 @@ const VideoProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       const data = await axios.get('/api/videos');
-      setVideos([...data.data.videos]);
+      setVideos(randomizeArray([...data.data.videos]));
     })();
   }, []);
 

@@ -12,6 +12,20 @@
   border-radius: 4px;
 }
 
+.filter-options::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.filter-options::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+}
+
+.filter-options::-webkit-scrollbar-track {
+  margin: 0 15rem;
+  border-radius: 1rem;
+}
+
 .btn-filter {
   border: 2px solid var(--red-color);
   color: red;
@@ -38,4 +52,10 @@
 
 .trending-vids {
   gap: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+  .filter-options {
+    justify-content: flex-start;
+  }
 }
