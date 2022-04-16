@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { makeServer } from './server';
 import { VideoProvider } from './Components/Providers/VideoProvider';
+import { AuthProvider } from './Components/Providers/AuthProvider';
 
 // Call make Server
 makeServer();
@@ -13,8 +14,10 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <VideoProvider>
-      <App />
-    </VideoProvider>
+    <AuthProvider>
+      <VideoProvider>
+        <App />
+      </VideoProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

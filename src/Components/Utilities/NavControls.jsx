@@ -31,7 +31,9 @@ const NavControls = () => {
           className={`icon light-color ${
             activeControl === 'watchlater' ? 'active-control' : ''
           }`}
-          onClick={(e) => setActiveControl('watchlater')}
+          onClick={(e) => {
+            setActiveControl('watchlater');
+          }}
         />
       </Link>
       <Link to='/history'>
@@ -39,7 +41,9 @@ const NavControls = () => {
           className={`icon light-color ${
             activeControl === 'history' ? 'active-control' : ''
           }`}
-          onClick={(e) => setActiveControl('history')}
+          onClick={(e) => {
+            setActiveControl('history');
+          }}
         />
       </Link>
       <Link to='/playlists'>
@@ -47,7 +51,9 @@ const NavControls = () => {
           className={`icon light-color ${
             activeControl === 'playlist' ? 'active-control' : ''
           }`}
-          onClick={(e) => setActiveControl('playlist')}
+          onClick={(e) => {
+            setActiveControl('playlist');
+          }}
         />
       </Link>
     </section>
