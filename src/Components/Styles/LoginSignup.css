@@ -27,13 +27,22 @@
   width: 100%;
   padding: 0.5rem 0.75rem;
   font-size: 1.25rem;
-  background: transparent;
+  background-color: transparent;
   border-bottom: 2px solid var(--grey-5-color);
 }
 
 .auth-form input:focus,
 .auth-form input:hover {
   border-bottom: 2px solid var(--red-color);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
 }
 
 .label {

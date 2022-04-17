@@ -16,17 +16,10 @@ const Home = () => {
   return (
     <main className='container'>
       {userLoggedIn ? (
-        currentUser.firstName ? (
-          <p className='h1 welcome'>
-            Welcome to <span className='site-name'>Game❌Play</span>,{' '}
-            {`${currentUser.firstName} ${currentUser.lastName}`} !
-          </p>
-        ) : (
-          <p className='h1 welcome'>
-            Welcome to <span className='site-name'>Game❌Play</span>,{' '}
-            {currentUser.username} !
-          </p>
-        )
+        <p className='h1 welcome'>
+          Welcome to <span className='site-name'>Game❌Play</span>,{' '}
+          {currentUser.username} !
+        </p>
       ) : (
         ''
       )}
