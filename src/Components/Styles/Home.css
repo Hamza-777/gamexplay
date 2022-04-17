@@ -4,6 +4,10 @@
   padding: 2rem 3rem;
 }
 
+.welcome {
+  margin-bottom: 1rem;
+}
+
 .video-listings {
   width: 100%;
   gap: 1rem;

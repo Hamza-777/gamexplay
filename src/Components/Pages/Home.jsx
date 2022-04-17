@@ -3,12 +3,32 @@ import '../Styles/Home.css';
 import Display from '../Utilities/Display';
 import VideoList from '../Utilities/VideoList';
 import { useVideo } from '../Providers/VideoProvider';
+import { useAuth } from '../Providers/AuthProvider';
+import { getUser } from '../Misc/localStorage';
 
 const Home = () => {
   const { videos } = useVideo();
+  const {
+    authState: { userLoggedIn },
+  } = useAuth();
+  const currentUser = getUser();
 
   return (
     <main className='container'>
+      {userLoggedIn ? (
+        currentUser.firstName ? (
+          <p className='h1 welcome'>
+            Welcome to Game❌Play,{' '}
+            {`${currentUser.firstName} ${currentUser.lastName}`} !
+          </p>
+        ) : (
+          <p className='h1 welcome'>
+            Welcome to Game❌Play, {currentUser.username} !
+          </p>
+        )
+      ) : (
+        ''
+      )}
       <Display />
       <section className='video-listings flex-center flex-col align-start'>
         <hr className='hr' />
