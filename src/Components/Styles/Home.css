@@ -8,6 +8,10 @@
   margin-bottom: 1rem;
 }
 
+.site-name {
+  font-family: var(--font-grapenuts);
+}
+
 .video-listings {
   width: 100%;
   gap: 1rem;
