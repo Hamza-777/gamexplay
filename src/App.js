@@ -11,6 +11,7 @@ import LoginSignup from './Components/Pages/LoginSignup';
 import PrivateRoute from './Components/Utilities/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Liked from './Components/Pages/Liked';
 
 function App() {
   return (
@@ -20,6 +21,14 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/video/:videoId' element={<VideoPage />} />
         <Route path='/trending' element={<Trending />} />
+        <Route
+          path='/liked'
+          element={
+            <PrivateRoute>
+              <Liked />
+            </PrivateRoute>
+          }
+        />
         <Route
           path='/watchlater'
           element={
