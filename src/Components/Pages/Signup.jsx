@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../Providers/AuthProvider';
-import { passwordsNotSame } from '../Misc/toasts';
+import { errorPopup } from '../Misc/toasts';
 import { sendSignupReq } from '../Misc/requests';
 import { Navigate } from 'react-router-dom';
 
@@ -48,7 +48,7 @@ const Signup = () => {
         confirmPassword: '',
       });
     } else {
-      passwordsNotSame();
+      errorPopup('Passwords do not match!');
       setFormData({ ...formData, password: '', confirmPassword: '' });
     }
     e.preventDefault();

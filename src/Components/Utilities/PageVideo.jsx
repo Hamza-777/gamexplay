@@ -1,10 +1,24 @@
 import React from 'react';
 import { MdOutlineWatchLater, MdPlaylistAdd } from 'react-icons/md';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
+import { useWatchLater } from '../Providers/WatchLaterProvider';
+import { useLiked } from '../Providers/LikedProvider';
+import { useAuth } from '../Providers/AuthProvider';
+import {
+  addVideoToWatchLater,
+  addToLiked,
+  removeFromLiked,
+} from '../Misc/requests';
+import { infoPopup } from '../Misc/toasts';
 
-const PageVideo = ({
-  currentVideo: { title, vidSrc, creator, creatorImg },
-}) => {
+const PageVideo = ({ currentVideo }) => {
+  const { dispatchWatchLater } = useWatchLater();
+  const { dispatchLiked } = useLiked();
+  const {
+    authState: { userLoggedIn },
+  } = useAuth();
+  const { _id, title, vidSrc, creator, creatorImg } = currentVideo;
+
   return (
     <section className='video-container flex flex-col align-start justify-center'>
       <iframe
@@ -22,13 +36,51 @@ const PageVideo = ({
         </div>
         <div className='controls-right flex-center'>
           <div className='grp flex-center'>
-            <AiOutlineLike className='icon' />
+            <AiOutlineLike
+              className='icon'
+              onClick={(e) => {
+                userLoggedIn
+                  ? addToLiked({ video: currentVideo }).then((res) => {
+                      dispatchLiked({
+                        type: 'GET_LIKED',
+                        payload: res,
+                      });
+                    })
+                  : infoPopup(
+                      'Login or create an account to like/unlike videos!'
+                    );
+              }}
+            />
             <p className='h6'>100K</p>
           </div>
           {'|'}
-          <AiOutlineDislike className='icon' />
+          <AiOutlineDislike
+            className='icon'
+            onClick={(e) => {
+              removeFromLiked(_id).then((res) => {
+                dispatchLiked({
+                  type: 'GET_LIKED',
+                  payload: res,
+                });
+              });
+            }}
+          />
           {'|'}
-          <MdOutlineWatchLater className='icon' />
+          <MdOutlineWatchLater
+            className='icon'
+            onClick={(e) => {
+              userLoggedIn
+                ? addVideoToWatchLater({ video: currentVideo }).then((res) => {
+                    dispatchWatchLater({
+                      type: 'GET_WATCHLATERS',
+                      payload: res,
+                    });
+                  })
+                : infoPopup(
+                    'Login or make an account to add videos to watchlater!'
+                  );
+            }}
+          />
           {'|'}
           <MdPlaylistAdd className='icon' />
         </div>
