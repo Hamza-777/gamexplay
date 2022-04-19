@@ -1,12 +1,12 @@
-.playlists {
+.liked {
   gap: 2rem;
 }
 
-.playlists > .h2 {
+.liked > .h2 {
   border-left: 5px solid var(--red-color);
   padding: 0 2rem;
 }
 
-.playlists-vids {
+.liked-vids {
   gap: 2rem;
 }

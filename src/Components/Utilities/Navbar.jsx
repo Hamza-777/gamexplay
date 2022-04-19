@@ -5,7 +5,7 @@ import { BsSunFill } from 'react-icons/bs';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../Providers/AuthProvider';
 import { removeAuth, removeUser } from '../Misc/localStorage';
-import { LogOutSuccess } from '../Misc/toasts';
+import { successPopup } from '../Misc/toasts';
 
 const Navbar = () => {
   const {
@@ -20,7 +20,7 @@ const Navbar = () => {
       dispatchAuth({
         type: 'LOGGED_OUT',
       });
-      LogOutSuccess();
+      successPopup('Logged Out successfully!');
       return <Navigate to='/login' />;
     }
   };

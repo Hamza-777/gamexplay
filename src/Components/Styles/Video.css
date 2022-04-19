@@ -88,3 +88,12 @@
   margin-left: auto;
   gap: 1rem;
 }
+
+.btn-remove {
+  color: var(--red-color);
+  transition: var(--default-transition);
+}
+
+.btn-remove:hover {
+  transform: scale(1.1);
+}

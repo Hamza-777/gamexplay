@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoIosTrendingUp } from 'react-icons/io';
 import { MdOutlineWatchLater, MdPlaylistAdd } from 'react-icons/md';
+import { AiOutlineLike } from 'react-icons/ai';
 import { VscHistory, VscHome } from 'react-icons/vsc';
 import { Link } from 'react-router-dom';
 import '../Styles/NavControls.css';
@@ -24,6 +25,14 @@ const NavControls = () => {
             activeControl === 'trending' ? 'active-control' : ''
           }`}
           onClick={(e) => setActiveControl('trending')}
+        />
+      </Link>
+      <Link to='/liked'>
+        <AiOutlineLike
+          className={`icon light-color ${
+            activeControl === 'liked' ? 'active-control' : ''
+          }`}
+          onClick={(e) => setActiveControl('liked')}
         />
       </Link>
       <Link to='/watchlater'>
