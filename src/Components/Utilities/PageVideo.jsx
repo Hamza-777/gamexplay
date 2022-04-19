@@ -57,12 +57,16 @@ const PageVideo = ({ currentVideo }) => {
           <AiOutlineDislike
             className='icon'
             onClick={(e) => {
-              removeFromLiked(_id).then((res) => {
-                dispatchLiked({
-                  type: 'GET_LIKED',
-                  payload: res,
-                });
-              });
+              userLoggedIn
+                ? removeFromLiked(_id).then((res) => {
+                    dispatchLiked({
+                      type: 'GET_LIKED',
+                      payload: res,
+                    });
+                  })
+                : infoPopup(
+                    'Login or make an account to add videos to watchlater!'
+                  );
             }}
           />
           {'|'}
