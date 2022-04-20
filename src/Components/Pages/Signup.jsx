@@ -79,6 +79,7 @@ const Signup = () => {
             onFocus={() => setFocusedDisplayName(true)}
             onBlur={() => setFocusedDisplayName(false)}
             className='light-color'
+            required
           />
         </div>
 
@@ -98,6 +99,7 @@ const Signup = () => {
             onFocus={() => setFocusedEmail(true)}
             onBlur={() => setFocusedEmail(false)}
             className='light-color'
+            required
           />
         </div>
         <div className='password'>
@@ -116,6 +118,7 @@ const Signup = () => {
             onFocus={() => setFocusedPassword(true)}
             onBlur={() => setFocusedPassword(false)}
             className='light-color'
+            min={7}
           />
         </div>
         <div className='confirm-password'>

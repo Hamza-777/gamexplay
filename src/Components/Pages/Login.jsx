@@ -73,6 +73,7 @@ const Login = () => {
             onFocus={() => setFocusedInput(true)}
             onBlur={() => setFocusedInput(false)}
             className='light-color'
+            required
           />
         </div>
         <div className='password'>
