@@ -3,11 +3,14 @@ import { useVideo } from '../Providers/VideoProvider';
 import { usePlaylists } from '../Providers/PlaylistsProvider';
 import { useModal } from '../Providers/ModalProvider';
 import '../Styles/Modal.css';
-import { createPlaylist } from '../Misc/requests';
+import { createPlaylist, addToPlaylist, getPlaylists } from '../Misc/requests';
 
 const Modal = () => {
   const { videos } = useVideo();
-  const { dispatchPlaylists } = usePlaylists();
+  const {
+    playlistsState: { playlists },
+    dispatchPlaylists,
+  } = usePlaylists();
   const { modalOpen, setModalOpen } = useModal();
   const [currentVideo, setCurrentVideo] = useState(
     videos.filter((video) => video._id === modalOpen.id)[0]
@@ -85,17 +88,34 @@ const Modal = () => {
           </form>
           <p className='h2'>Available Playlists</p>
           <div className='all-playlists'>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
-            <p>Hello</p>
+            {playlists.length ? (
+              playlists.map((playlist) => (
+                <div
+                  key={playlist._id}
+                  className='playlist flex-center justify-between'
+                >
+                  <p className='h5'>{playlist.title}</p>
+                  {modalOpen.id && (
+                    <button
+                      className='btn btn-outline'
+                      onClick={(e) => {
+                        addToPlaylist({ video: currentVideo }, playlist._id);
+                        getPlaylists().then((res) => {
+                          dispatchPlaylists({
+                            type: 'UPDATE_PLAYLISTS',
+                            payload: res,
+                          });
+                        });
+                      }}
+                    >
+                      Add
+                    </button>
+                  )}
+                </div>
+              ))
+            ) : (
+              <p className='small'>No playlists</p>
+            )}
           </div>
           <button
             className='btn btn-outline close-modal'

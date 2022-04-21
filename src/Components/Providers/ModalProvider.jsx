@@ -5,7 +5,7 @@ const modalContext = createContext(null);
 const ModalProvider = ({ children }) => {
   const [modalOpen, setModalOpen] = useState({
     status: false,
-    id: 'valorant3',
+    id: null,
   });
 
   return (

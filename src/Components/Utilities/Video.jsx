@@ -8,10 +8,13 @@ import {
   removeFromLiked,
   removeFromHistory,
   addToHistory,
+  deleteFromPlaylist,
+  getPlaylists,
 } from '../Misc/requests';
 import { useWatchLater } from '../Providers/WatchLaterProvider';
 import { useLiked } from '../Providers/LikedProvider';
 import { useHistory } from '../Providers/HistoryProvider';
+import { usePlaylists } from '../Providers/PlaylistsProvider';
 import { useAuth } from '../Providers/AuthProvider';
 import { useModal } from '../Providers/ModalProvider';
 import '../Styles/Video.css';
@@ -22,6 +25,7 @@ const Video = ({ video }) => {
   const { dispatchWatchLater } = useWatchLater();
   const { dispatchLiked } = useLiked();
   const { dispatchHistory } = useHistory();
+  const { dispatchPlaylists } = usePlaylists();
   const {
     authState: { userLoggedIn },
   } = useAuth();
@@ -131,6 +135,25 @@ const Video = ({ video }) => {
           className='icon'
           onClick={(e) => setModalOpen({ ...modalOpen, status: true, id: _id })}
         />
+        {location.includes('/playlists/') ? (
+          <button
+            className='btn btn-remove'
+            onClick={(e) => {
+              let current = location.split('/');
+              deleteFromPlaylist(current[current.length - 1], _id);
+              getPlaylists().then((res) => {
+                dispatchPlaylists({
+                  type: 'UPDATE_PLAYLISTS',
+                  payload: res,
+                });
+              });
+            }}
+          >
+            Remove
+          </button>
+        ) : (
+          ''
+        )}
       </section>
     </aside>
   );

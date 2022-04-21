@@ -21,7 +21,7 @@ const Playlists = () => {
         <button
           className='btn btn-outline'
           onClick={(e) =>
-            setModalOpen({ ...modalOpen, status: true, id: 'null' })
+            setModalOpen({ ...modalOpen, status: true, id: null })
           }
         >
           + Create New
