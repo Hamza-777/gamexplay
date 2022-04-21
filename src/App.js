@@ -14,6 +14,7 @@ import Modal from './Components/Utilities/Modal';
 import { useModal } from './Components/Providers/ModalProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Playlist from './Components/Pages/Playlist';
 
 function App() {
   const { modalOpen } = useModal();
@@ -54,6 +55,14 @@ function App() {
           element={
             <PrivateRoute>
               <Playlists />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/playlists/:playlistId'
+          element={
+            <PrivateRoute>
+              <Playlist />
             </PrivateRoute>
           }
         />

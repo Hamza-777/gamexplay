@@ -1,9 +1,14 @@
 import React from 'react';
 import EmptyPage from './EmptyPage';
+import { usePlaylists } from '../Providers/PlaylistsProvider';
 import { useModal } from '../Providers/ModalProvider';
 import '../Styles/Playlists.css';
+import { Link } from 'react-router-dom';
 
 const Playlists = () => {
+  const {
+    playlistsState: { playlists },
+  } = usePlaylists();
   const { modalOpen, setModalOpen } = useModal();
 
   return (
@@ -19,7 +24,26 @@ const Playlists = () => {
           + Create New
         </button>
       </section>
-      <EmptyPage page='playlists' />
+      {playlists.length ? (
+        <section className='playlists-all flex-center flex-row-wrap'>
+          {playlists.map((playlist) => (
+            <Link
+              to={`/playlists/${playlist._id}`}
+              key={playlist._id}
+              className='playlist-item flex flex-col light-color'
+            >
+              <p className='h5 title'>{playlist.title}</p>
+              <p className='description'>{playlist.description}</p>
+              <p className='no-of-videos'>
+                {playlist.videos.length}{' '}
+                {playlist.videos.length === 1 ? 'video' : 'videos'}
+              </p>
+            </Link>
+          ))}
+        </section>
+      ) : (
+        <EmptyPage page='playlists' />
+      )}
     </main>
   );
 };

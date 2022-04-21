@@ -12,10 +12,6 @@
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 
-.empty-page > .h1 {
-  word-break: break-all;
-}
-
 @media screen and (max-width: 900px) {
   .empty-page {
     flex-direction: column;

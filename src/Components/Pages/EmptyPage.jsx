@@ -13,8 +13,10 @@ const EmptyPage = ({ page }) => {
         <VscHistory className='empty-image' />
       ) : page === 'playlists' ? (
         <MdPlaylistAdd className='empty-image' />
-      ) : (
+      ) : page === 'liked' ? (
         <AiOutlineLike className='empty-image' />
+      ) : (
+        <MdPlaylistAdd className='empty-image' />
       )}
       {page === 'watchlater' ? (
         <p className='h1'>No videos added to {page} yet!</p>
@@ -22,8 +24,10 @@ const EmptyPage = ({ page }) => {
         <p className='h1'>Start watching videos to add to your {page}!</p>
       ) : page === 'playlists' ? (
         <p className='h1'>You haven't created any {page} yet!</p>
-      ) : (
+      ) : page === 'liked' ? (
         <p className='h1'>Videos you gave a thumbs up will be added here!</p>
+      ) : (
+        <p className='h1'>You do not have any videos in this playlist!</p>
       )}
     </main>
   );
