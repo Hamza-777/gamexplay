@@ -2,7 +2,11 @@
   gap: 2rem;
 }
 
-.playlists > .h2 {
+.playlists-head {
+  width: 100%;
+}
+
+.playlists-head > .h2 {
   border-left: 5px solid var(--red-color);
   padding: 0 2rem;
 }

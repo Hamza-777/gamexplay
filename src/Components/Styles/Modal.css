@@ -1,0 +1,83 @@
+.modal-container {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background-color: var(--light-black-1);
+}
+
+.modal {
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  margin-top: 3rem;
+}
+
+.modal-for-video {
+  flex: 0.4;
+  gap: 1rem;
+}
+
+.creator-info {
+  gap: 1rem;
+}
+
+.playlists-info {
+  flex: 1;
+  gap: 1rem;
+  margin-bottom: auto;
+}
+
+.playlists-info > .h2 {
+  border-left: 5px solid var(--red-color);
+  padding: 0 2rem;
+  margin-top: 1.25rem;
+}
+
+.playlist-form {
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.playlist-title,
+.playlist-desc {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid var(--red-color);
+}
+
+.playlist-title::placeholder,
+.playlist-desc::placeholder {
+  color: var(--light-color);
+}
+
+.all-playlists {
+  overflow-y: auto;
+  height: 10rem;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.all-playlists::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.all-playlists::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+}
+
+.all-playlists::-webkit-scrollbar-track {
+  margin: 1rem 0;
+  border-radius: 1rem;
+}
+
+.close-modal {
+  margin-left: auto;
+}

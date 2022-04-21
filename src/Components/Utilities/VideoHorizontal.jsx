@@ -6,6 +6,7 @@ import { addVideoToWatchLater, addToHistory } from '../Misc/requests';
 import { useWatchLater } from '../Providers/WatchLaterProvider';
 import { useHistory } from '../Providers/HistoryProvider';
 import { useAuth } from '../Providers/AuthProvider';
+import { useModal } from '../Providers/ModalProvider';
 import '../Styles/Video.css';
 import { infoPopup } from '../Misc/toasts';
 
@@ -15,6 +16,7 @@ const VideoHorizontal = ({ video }) => {
   const {
     authState: { userLoggedIn },
   } = useAuth();
+  const { modalOpen, setModalOpen } = useModal();
 
   const { _id, title, vidSrc } = video;
 
@@ -75,7 +77,12 @@ const VideoHorizontal = ({ video }) => {
                   );
             }}
           />
-          <MdPlaylistAdd className='icon' />
+          <MdPlaylistAdd
+            className='icon'
+            onClick={(e) =>
+              setModalOpen({ ...modalOpen, status: true, id: _id })
+            }
+          />
         </section>
       </article>
     </aside>

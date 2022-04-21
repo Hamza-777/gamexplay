@@ -37,7 +37,7 @@ const Navbar = () => {
           <Link
             to='/login-signup'
             name={userLoggedIn ? 'Logout' : 'LogIn'}
-            className='btn btn-login'
+            className='btn btn-outline'
             onClick={logoutUser}
           >
             {userLoggedIn ? 'Logout' : 'LogIn'}

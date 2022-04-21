@@ -8,6 +8,8 @@ import { AuthProvider } from './Components/Providers/AuthProvider';
 import { WatchLaterProvider } from './Components/Providers/WatchLaterProvider';
 import { LikedProvider } from './Components/Providers/LikedProvider';
 import { HistoryProvider } from './Components/Providers/HistoryProvider';
+import { PlaylistsProvider } from './Components/Providers/PlaylistsProvider';
+import { ModalProvider } from './Components/Providers/ModalProvider';
 
 // Call make Server
 makeServer();
@@ -18,15 +20,19 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <HistoryProvider>
-        <LikedProvider>
-          <WatchLaterProvider>
-            <VideoProvider>
-              <App />
-            </VideoProvider>
-          </WatchLaterProvider>
-        </LikedProvider>
-      </HistoryProvider>
+      <ModalProvider>
+        <PlaylistsProvider>
+          <HistoryProvider>
+            <LikedProvider>
+              <WatchLaterProvider>
+                <VideoProvider>
+                  <App />
+                </VideoProvider>
+              </WatchLaterProvider>
+            </LikedProvider>
+          </HistoryProvider>
+        </PlaylistsProvider>
+      </ModalProvider>
     </AuthProvider>
   </React.StrictMode>
 );

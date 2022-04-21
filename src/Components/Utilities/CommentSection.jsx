@@ -10,7 +10,7 @@ const CommentSection = () => {
           className='comment-input light-color'
           placeholder='Add a comment...'
         />
-        <input type='submit' value='Comment' className='btn btn-comment' />
+        <input type='submit' value='Comment' className='btn btn-outline' />
       </form>
       <div className='comments-container flex flex-col'>
         <div className='comment flex-center'>

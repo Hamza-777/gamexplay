@@ -129,6 +129,77 @@ const removeFromHistory = async (id) => {
   }
 };
 
+const createPlaylist = async (body) => {
+  const config = {
+    headers: {
+      authorization: getAuth(),
+    },
+  };
+  try {
+    const response = await axios.post(`/api/user/playlists`, body, config);
+    successPopup(`Created a new playlist ${body.playlist.title}`);
+    return response.data.playlists;
+  } catch (err) {
+    errorPopup('No such user exists!');
+  }
+};
+
+const deletePlaylist = async (id) => {
+  const config = {
+    headers: {
+      authorization: getAuth(),
+    },
+  };
+  try {
+    const response = await axios.delete(`/api/user/playlists/${id}`, config);
+    successPopup(`Playlist deleted successfully!`);
+    return response.data.playlists;
+  } catch (err) {
+    errorPopup('No such user exists!');
+  }
+};
+
+const addToPlaylist = async (body, id) => {
+  const config = {
+    headers: {
+      authorization: getAuth(),
+    },
+  };
+  try {
+    const response = await axios.post(
+      `/api/user/playlists/${id}`,
+      body,
+      config
+    );
+    successPopup(`Video added to playlist successfully!`);
+    return response.data.playlist;
+  } catch (err) {
+    if (err.response.status === 404) {
+      errorPopup('No such user exists!');
+    } else {
+      errorPopup('video already exists in the playlist!');
+    }
+  }
+};
+
+const deleteFromPlaylist = async (playlistId, videoId) => {
+  const config = {
+    headers: {
+      authorization: getAuth(),
+    },
+  };
+  try {
+    const response = await axios.delete(
+      `/api/user/playlists/${playlistId}/${videoId}`,
+      config
+    );
+    successPopup(`Video deleted from playlist successfully!`);
+    return response.data.playlist;
+  } catch (err) {
+    errorPopup('No such user exists!');
+  }
+};
+
 export {
   sendLoginReq,
   sendSignupReq,
@@ -138,4 +209,8 @@ export {
   removeFromLiked,
   addToHistory,
   removeFromHistory,
+  createPlaylist,
+  deletePlaylist,
+  addToPlaylist,
+  deleteFromPlaylist,
 };

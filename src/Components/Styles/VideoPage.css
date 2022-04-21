@@ -66,17 +66,8 @@
   border-color: var(--red-color);
 }
 
-.btn-comment {
-  border: 1px solid var(--red-color);
-  padding: 0.5rem 1.5rem;
-  color: var(--red-color);
-  border-radius: 4px;
-  transition: var(--default-transition);
+.comment-form > .btn-outline {
   margin-left: auto;
-}
-
-.btn-comment:hover {
-  transform: scale(1.1);
 }
 
 .comments-container {

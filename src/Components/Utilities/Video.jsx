@@ -13,6 +13,7 @@ import { useWatchLater } from '../Providers/WatchLaterProvider';
 import { useLiked } from '../Providers/LikedProvider';
 import { useHistory } from '../Providers/HistoryProvider';
 import { useAuth } from '../Providers/AuthProvider';
+import { useModal } from '../Providers/ModalProvider';
 import '../Styles/Video.css';
 import { infoPopup } from '../Misc/toasts';
 
@@ -24,6 +25,7 @@ const Video = ({ video }) => {
   const {
     authState: { userLoggedIn },
   } = useAuth();
+  const { modalOpen, setModalOpen } = useModal();
 
   const { _id, title, vidSrc, creator, creatorImg } = video;
 
@@ -125,7 +127,10 @@ const Video = ({ video }) => {
             }}
           />
         )}
-        <MdPlaylistAdd className='icon' />
+        <MdPlaylistAdd
+          className='icon'
+          onClick={(e) => setModalOpen({ ...modalOpen, status: true, id: _id })}
+        />
       </section>
     </aside>
   );

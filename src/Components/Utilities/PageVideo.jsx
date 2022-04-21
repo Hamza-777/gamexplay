@@ -4,6 +4,7 @@ import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { useWatchLater } from '../Providers/WatchLaterProvider';
 import { useLiked } from '../Providers/LikedProvider';
 import { useAuth } from '../Providers/AuthProvider';
+import { useModal } from '../Providers/ModalProvider';
 import {
   addVideoToWatchLater,
   addToLiked,
@@ -17,6 +18,8 @@ const PageVideo = ({ currentVideo }) => {
   const {
     authState: { userLoggedIn },
   } = useAuth();
+  const { modalOpen, setModalOpen } = useModal();
+
   const { _id, title, vidSrc, creator, creatorImg } = currentVideo;
 
   return (
@@ -86,7 +89,12 @@ const PageVideo = ({ currentVideo }) => {
             }}
           />
           {'|'}
-          <MdPlaylistAdd className='icon' />
+          <MdPlaylistAdd
+            className='icon'
+            onClick={(e) =>
+              setModalOpen({ ...modalOpen, status: true, id: _id })
+            }
+          />
         </div>
       </aside>
       <hr className='hr' />

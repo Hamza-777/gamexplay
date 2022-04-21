@@ -9,11 +9,15 @@ import Playlists from './Components/Pages/Playlists';
 import VideoPage from './Components/Pages/VideoPage';
 import LoginSignup from './Components/Pages/LoginSignup';
 import PrivateRoute from './Components/Utilities/PrivateRoute';
+import Liked from './Components/Pages/Liked';
+import Modal from './Components/Utilities/Modal';
+import { useModal } from './Components/Providers/ModalProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Liked from './Components/Pages/Liked';
 
 function App() {
+  const { modalOpen } = useModal();
+
   return (
     <Router>
       <Navbar />
@@ -57,6 +61,7 @@ function App() {
       </Routes>
       <Footer />
       <ToastContainer />
+      {modalOpen.status && <Modal />}
     </Router>
   );
 }
