@@ -144,7 +144,7 @@ const createPlaylist = async (body) => {
   }
 };
 
-const deletePlaylist = async (id) => {
+const deletePlaylist = async (id, title) => {
   const config = {
     headers: {
       authorization: getAuth(),
@@ -152,7 +152,7 @@ const deletePlaylist = async (id) => {
   };
   try {
     const response = await axios.delete(`/api/user/playlists/${id}`, config);
-    successPopup(`Playlist deleted successfully!`);
+    successPopup(`Playlist ${title} deleted successfully!`);
     return response.data.playlists;
   } catch (err) {
     errorPopup('No such user exists!');

@@ -2,12 +2,15 @@ import React from 'react';
 import EmptyPage from './EmptyPage';
 import { usePlaylists } from '../Providers/PlaylistsProvider';
 import { useModal } from '../Providers/ModalProvider';
+import { MdDeleteOutline } from 'react-icons/md';
 import '../Styles/Playlists.css';
 import { Link } from 'react-router-dom';
+import { deletePlaylist } from '../Misc/requests';
 
 const Playlists = () => {
   const {
     playlistsState: { playlists },
+    dispatchPlaylists,
   } = usePlaylists();
   const { modalOpen, setModalOpen } = useModal();
 
@@ -27,18 +30,32 @@ const Playlists = () => {
       {playlists.length ? (
         <section className='playlists-all flex-center flex-row-wrap'>
           {playlists.map((playlist) => (
-            <Link
-              to={`/playlists/${playlist._id}`}
-              key={playlist._id}
-              className='playlist-item flex flex-col light-color'
-            >
-              <p className='h5 title'>{playlist.title}</p>
+            <div key={playlist._id} className='playlist-item flex flex-col'>
+              <Link
+                to={`/playlists/${playlist._id}`}
+                className='h5 title light-color'
+              >
+                {playlist.title}
+              </Link>
               <p className='description'>{playlist.description}</p>
-              <p className='no-of-videos'>
-                {playlist.videos.length}{' '}
-                {playlist.videos.length === 1 ? 'video' : 'videos'}
-              </p>
-            </Link>
+              <div className='flex-center justify-between'>
+                <p>
+                  {playlist.videos.length}{' '}
+                  {playlist.videos.length === 1 ? 'video' : 'videos'}
+                </p>
+                <MdDeleteOutline
+                  className='icon'
+                  onClick={(e) => {
+                    deletePlaylist(playlist._id, playlist.title).then((res) => {
+                      dispatchPlaylists({
+                        type: 'UPDATE_PLAYLISTS',
+                        payload: res,
+                      });
+                    });
+                  }}
+                />
+              </div>
+            </div>
           ))}
         </section>
       ) : (
