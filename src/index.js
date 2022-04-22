@@ -11,6 +11,7 @@ import { HistoryProvider } from './Components/Providers/HistoryProvider';
 import { PlaylistsProvider } from './Components/Providers/PlaylistsProvider';
 import { ModalProvider } from './Components/Providers/ModalProvider';
 import { ThemeProvider } from './Components/Providers/ThemeProvider';
+import { CommentProvider } from './Components/Providers/CommentProvider';
 
 // Call make Server
 makeServer();
@@ -22,19 +23,21 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       <AuthProvider>
-        <ModalProvider>
-          <PlaylistsProvider>
-            <HistoryProvider>
-              <LikedProvider>
-                <WatchLaterProvider>
-                  <VideoProvider>
-                    <App />
-                  </VideoProvider>
-                </WatchLaterProvider>
-              </LikedProvider>
-            </HistoryProvider>
-          </PlaylistsProvider>
-        </ModalProvider>
+        <CommentProvider>
+          <ModalProvider>
+            <PlaylistsProvider>
+              <HistoryProvider>
+                <LikedProvider>
+                  <WatchLaterProvider>
+                    <VideoProvider>
+                      <App />
+                    </VideoProvider>
+                  </WatchLaterProvider>
+                </LikedProvider>
+              </HistoryProvider>
+            </PlaylistsProvider>
+          </ModalProvider>
+        </CommentProvider>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
