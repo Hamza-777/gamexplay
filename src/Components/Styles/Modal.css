@@ -84,3 +84,13 @@
 .close-modal {
   margin-left: auto;
 }
+
+@media screen and (max-width: 900px) {
+  .modal {
+    flex-direction: column;
+  }
+
+  .playlists-info {
+    width: 100%;
+  }
+}

@@ -125,7 +125,7 @@ const Modal = () => {
                 </div>
               ))
             ) : (
-              <p className='small light-color'>No playlists</p>
+              <p className='light-color'>No playlists created yet!</p>
             )}
           </div>
           <button
