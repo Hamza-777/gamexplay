@@ -1,19 +1,22 @@
 .empty-page {
   width: 100%;
-  background-color: var(--grey-2-color);
   border-radius: 4px;
   gap: 4rem;
   padding: 2rem;
+}
+
+.empty-page-back-2 {
+  background-color: var(--grey-2-color);
+}
+
+.empty-page-back-d {
+  background-color: var(--grey-d-color);
 }
 
 .empty-image {
   font-size: 25rem;
   color: var(--red-color);
   filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
-}
-
-.empty-page > .h1 {
-  word-break: break-all;
 }
 
 @media screen and (max-width: 900px) {

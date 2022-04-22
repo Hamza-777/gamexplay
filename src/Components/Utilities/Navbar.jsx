@@ -1,13 +1,15 @@
 import React from 'react';
 import '../Styles/Navbar.css';
 import NavControls from './NavControls';
-import { BsSunFill } from 'react-icons/bs';
+import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 import { Link, Navigate } from 'react-router-dom';
+import { useTheme } from '../Providers/ThemeProvider';
 import { useAuth } from '../Providers/AuthProvider';
 import { removeAuth, removeUser } from '../Misc/localStorage';
 import { successPopup } from '../Misc/toasts';
 
 const Navbar = () => {
+  const { theme, setTheme } = useTheme();
   const {
     authState: { userLoggedIn },
     dispatchAuth,
@@ -30,7 +32,9 @@ const Navbar = () => {
       <nav className='navbar flex-center justify-between'>
         <div className='navbar-left'>
           <Link to='/'>
-            <h1 className='h2 light-color'>Game❌Play</h1>
+            <h1 className={`h2 ${theme === 'dark' ? 'light' : 'dark'}-color`}>
+              Game❌Play
+            </h1>
           </Link>
         </div>
         <div className='navbar-right flex-center'>
@@ -42,7 +46,11 @@ const Navbar = () => {
           >
             {userLoggedIn ? 'Logout' : 'LogIn'}
           </Link>
-          <BsSunFill className='icon sun' />
+          {theme === 'dark' ? (
+            <BsSunFill className='icon' onClick={(e) => setTheme('light')} />
+          ) : (
+            <BsMoonFill className='icon' onClick={(e) => setTheme('dark')} />
+          )}
         </div>
       </nav>
       <NavControls />

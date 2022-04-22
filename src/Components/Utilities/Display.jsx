@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { useTheme } from '../Providers/ThemeProvider';
 import '../Styles/Display.css';
 
 const Display = () => {
+  const { theme } = useTheme();
   const images = useMemo(
     () => ['csgo', 'fortnite', 'lol', 'minecraft', 'valorant'],
     []
@@ -21,7 +23,11 @@ const Display = () => {
 
   return (
     <a href={`#${img}`} className='display-container'>
-      <img className='img display-img' src={`/img/${img}.jpg`} alt={img} />
+      <img
+        className={`img display-img-${theme}`}
+        src={`/img/${img}.jpg`}
+        alt={img}
+      />
     </a>
   );
 };

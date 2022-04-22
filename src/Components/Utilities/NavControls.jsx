@@ -4,16 +4,18 @@ import { MdOutlineWatchLater, MdPlaylistAdd } from 'react-icons/md';
 import { AiOutlineLike } from 'react-icons/ai';
 import { VscHistory, VscHome } from 'react-icons/vsc';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../Providers/ThemeProvider';
 import '../Styles/NavControls.css';
 
 const NavControls = () => {
+  const { theme } = useTheme();
   const [activeControl, setActiveControl] = useState('home');
 
   return (
     <section className='controls flex-center'>
       <Link to='/'>
         <VscHome
-          className={`icon light-color ${
+          className={`icon ${theme === 'dark' ? 'light' : 'dark'}-color ${
             activeControl === 'home' ? 'active-control' : ''
           }`}
           onClick={(e) => setActiveControl('home')}
@@ -21,7 +23,7 @@ const NavControls = () => {
       </Link>
       <Link to='/trending'>
         <IoIosTrendingUp
-          className={`icon light-color ${
+          className={`icon ${theme === 'dark' ? 'light' : 'dark'}-color ${
             activeControl === 'trending' ? 'active-control' : ''
           }`}
           onClick={(e) => setActiveControl('trending')}
@@ -29,7 +31,7 @@ const NavControls = () => {
       </Link>
       <Link to='/liked'>
         <AiOutlineLike
-          className={`icon light-color ${
+          className={`icon ${theme === 'dark' ? 'light' : 'dark'}-color ${
             activeControl === 'liked' ? 'active-control' : ''
           }`}
           onClick={(e) => setActiveControl('liked')}
@@ -37,7 +39,7 @@ const NavControls = () => {
       </Link>
       <Link to='/watchlater'>
         <MdOutlineWatchLater
-          className={`icon light-color ${
+          className={`icon ${theme === 'dark' ? 'light' : 'dark'}-color ${
             activeControl === 'watchlater' ? 'active-control' : ''
           }`}
           onClick={(e) => {
@@ -47,7 +49,7 @@ const NavControls = () => {
       </Link>
       <Link to='/history'>
         <VscHistory
-          className={`icon light-color ${
+          className={`icon ${theme === 'dark' ? 'light' : 'dark'}-color ${
             activeControl === 'history' ? 'active-control' : ''
           }`}
           onClick={(e) => {
@@ -57,7 +59,7 @@ const NavControls = () => {
       </Link>
       <Link to='/playlists'>
         <MdPlaylistAdd
-          className={`icon light-color ${
+          className={`icon ${theme === 'dark' ? 'light' : 'dark'}-color ${
             activeControl === 'playlist' ? 'active-control' : ''
           }`}
           onClick={(e) => {

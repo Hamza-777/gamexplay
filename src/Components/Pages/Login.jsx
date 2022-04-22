@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../Providers/AuthProvider';
+import { useTheme } from '../Providers/ThemeProvider';
 import { sendLoginReq } from '../Misc/requests';
 
 const Login = () => {
   const { dispatchAuth } = useAuth();
+  const { theme } = useTheme();
   const [goto, setGoto] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -61,7 +63,7 @@ const Login = () => {
           <label
             className={`${
               email.length > 0 || focusedInput ? 'shrink' : ''
-            } label light-color`}
+            } label ${theme === 'dark' ? 'light' : 'dark'}-color`}
           >
             Email
           </label>
@@ -72,7 +74,7 @@ const Login = () => {
             onChange={handleChange}
             onFocus={() => setFocusedInput(true)}
             onBlur={() => setFocusedInput(false)}
-            className='light-color'
+            className={`${theme === 'dark' ? 'light' : 'dark'}-color`}
             required
           />
         </div>
@@ -80,7 +82,7 @@ const Login = () => {
           <label
             className={`${
               password.length > 0 || focusedPassword ? 'shrink' : ''
-            } label light-color`}
+            } label ${theme === 'dark' ? 'light' : 'dark'}-color`}
           >
             Password
           </label>
@@ -91,7 +93,7 @@ const Login = () => {
             onChange={handleChange}
             onFocus={() => setFocusedPassword(true)}
             onBlur={() => setFocusedPassword(false)}
-            className='light-color'
+            className={`${theme === 'dark' ? 'light' : 'dark'}-color`}
           />
         </div>
         <button className='btn btn-login-signup flex align-center justify-center'>

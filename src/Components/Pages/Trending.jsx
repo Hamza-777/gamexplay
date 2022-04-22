@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import '../Styles/Trending.css';
 import { useVideo } from '../Providers/VideoProvider';
+import { useTheme } from '../Providers/ThemeProvider';
 import Video from '../Utilities/Video';
 
 const Trending = () => {
@@ -10,6 +11,7 @@ const Trending = () => {
     videos,
     dispatchVideo,
   } = useVideo();
+  const { theme } = useTheme();
 
   useEffect(() => {
     dispatchVideo({
@@ -40,7 +42,11 @@ const Trending = () => {
 
   return (
     <main className='container trending flex-center flex-col align-start'>
-      <aside className='filter-options flex align-center'>
+      <aside
+        className={`filter-options filter-options-back-${
+          theme === 'dark' ? '2' : 'd'
+        } flex align-center`}
+      >
         <button
           name='all'
           className={`btn btn-filter ${
