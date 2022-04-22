@@ -86,7 +86,7 @@ const Modal = () => {
             />
             <button className='btn btn-outline'>Create</button>
           </form>
-          <p className='h2'>Available Playlists</p>
+          <p className='h2 light-color'>Available Playlists</p>
           <div className='all-playlists'>
             {playlists.length ? (
               playlists.map((playlist) => (
@@ -94,7 +94,7 @@ const Modal = () => {
                   key={playlist._id}
                   className='playlist flex-center justify-between'
                 >
-                  <p className='h5'>{playlist.title}</p>
+                  <p className='h5 light-color'>{playlist.title}</p>
                   {modalOpen.id && (
                     <button
                       className='btn btn-outline'
@@ -114,7 +114,7 @@ const Modal = () => {
                 </div>
               ))
             ) : (
-              <p className='small'>No playlists</p>
+              <p className='small light-color'>No playlists</p>
             )}
           </div>
           <button

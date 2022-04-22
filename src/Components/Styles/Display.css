@@ -4,14 +4,26 @@
   margin: 0 auto;
 }
 
-.display-img {
+.display-img-dark {
   border: 4px;
   cursor: pointer;
   transition: var(--default-transition);
 }
 
-.display-img:hover {
+.display-img-dark:hover {
   padding: 0;
   border: 4px solid rgba(249, 249, 249, 0.8);
+  transition-duration: 300ms;
+}
+
+.display-img-light {
+  border: 4px;
+  cursor: pointer;
+  transition: var(--default-transition);
+}
+
+.display-img-light:hover {
+  padding: 0;
+  border: 4px solid rgba(0, 0, 0, 0.8);
   transition-duration: 300ms;
 }

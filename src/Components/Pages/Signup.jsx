@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuth } from '../Providers/AuthProvider';
+import { useTheme } from '../Providers/ThemeProvider';
 import { errorPopup } from '../Misc/toasts';
 import { sendSignupReq } from '../Misc/requests';
 import { Navigate } from 'react-router-dom';
 
 const Signup = () => {
   const { dispatchAuth } = useAuth();
+  const { theme } = useTheme();
   const [goto, setGoto] = useState(false);
   const [formData, setFormData] = useState({
     username: '',
@@ -67,7 +69,7 @@ const Signup = () => {
           <label
             className={`${
               username.length > 0 || focusedDisplayName ? 'shrink' : ''
-            } label light-color`}
+            } label ${theme === 'dark' ? 'light' : 'dark'}-color`}
           >
             Name
           </label>
@@ -78,7 +80,7 @@ const Signup = () => {
             onChange={handleChange}
             onFocus={() => setFocusedDisplayName(true)}
             onBlur={() => setFocusedDisplayName(false)}
-            className='light-color'
+            className={`${theme === 'dark' ? 'light' : 'dark'}-color`}
             required
           />
         </div>
@@ -87,7 +89,7 @@ const Signup = () => {
           <label
             className={`${
               email.length > 0 || focusedEmail ? 'shrink' : ''
-            } label light-color`}
+            } label ${theme === 'dark' ? 'light' : 'dark'}-color`}
           >
             Email
           </label>
@@ -98,7 +100,7 @@ const Signup = () => {
             onChange={handleChange}
             onFocus={() => setFocusedEmail(true)}
             onBlur={() => setFocusedEmail(false)}
-            className='light-color'
+            className={`${theme === 'dark' ? 'light' : 'dark'}-color`}
             required
           />
         </div>
@@ -106,7 +108,7 @@ const Signup = () => {
           <label
             className={`${
               password.length > 0 || focusedPassword ? 'shrink' : ''
-            } label light-color`}
+            } label ${theme === 'dark' ? 'light' : 'dark'}-color`}
           >
             Password
           </label>
@@ -117,7 +119,7 @@ const Signup = () => {
             onChange={handleChange}
             onFocus={() => setFocusedPassword(true)}
             onBlur={() => setFocusedPassword(false)}
-            className='light-color'
+            className={`${theme === 'dark' ? 'light' : 'dark'}-color`}
             min={7}
           />
         </div>
@@ -127,7 +129,7 @@ const Signup = () => {
               confirmPassword.length > 0 || focusedConfirmPassword
                 ? 'shrink'
                 : ''
-            } label light-color`}
+            } label ${theme === 'dark' ? 'light' : 'dark'}-color`}
           >
             Confirm Password
           </label>
@@ -138,7 +140,7 @@ const Signup = () => {
             onChange={handleChange}
             onFocus={() => setFocusedConfirmPassword(true)}
             onBlur={() => setFocusedConfirmPassword(false)}
-            className='light-color'
+            className={`${theme === 'dark' ? 'light' : 'dark'}-color`}
           />
         </div>
         <button className='btn btn-login-signup flex align-center justify-center'>

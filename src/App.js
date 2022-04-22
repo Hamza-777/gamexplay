@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Pages/Home';
 import Trending from './Components/Pages/Trending';
@@ -12,12 +13,21 @@ import PrivateRoute from './Components/Utilities/PrivateRoute';
 import Liked from './Components/Pages/Liked';
 import Modal from './Components/Utilities/Modal';
 import { useModal } from './Components/Providers/ModalProvider';
+import { useTheme } from './Components/Providers/ThemeProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Playlist from './Components/Pages/Playlist';
 
 function App() {
   const { modalOpen } = useModal();
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    document.body.style.backgroundColor = `var(--${theme}-color)`;
+    document.body.style.color = `var(--${
+      theme === 'dark' ? 'light' : 'dark'
+    }-color)`;
+  }, [theme]);
 
   return (
     <Router>

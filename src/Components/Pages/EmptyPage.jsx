@@ -2,11 +2,18 @@ import React from 'react';
 import { MdOutlineWatchLater, MdPlaylistAdd } from 'react-icons/md';
 import { AiOutlineLike } from 'react-icons/ai';
 import { VscHistory } from 'react-icons/vsc';
+import { useTheme } from '../Providers/ThemeProvider';
 import '../Styles/EmptyPage.css';
 
 const EmptyPage = ({ page }) => {
+  const { theme } = useTheme();
+
   return (
-    <main className='empty-page flex-center'>
+    <main
+      className={`empty-page empty-page-back-${
+        theme === 'dark' ? '2' : 'd'
+      } flex-center`}
+    >
       {page === 'watchlater' ? (
         <MdOutlineWatchLater className='empty-image' />
       ) : page === 'history' ? (

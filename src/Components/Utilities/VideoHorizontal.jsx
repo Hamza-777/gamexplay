@@ -7,6 +7,7 @@ import { useWatchLater } from '../Providers/WatchLaterProvider';
 import { useHistory } from '../Providers/HistoryProvider';
 import { useAuth } from '../Providers/AuthProvider';
 import { useModal } from '../Providers/ModalProvider';
+import { useTheme } from '../Providers/ThemeProvider';
 import '../Styles/Video.css';
 import { infoPopup } from '../Misc/toasts';
 
@@ -16,6 +17,7 @@ const VideoHorizontal = ({ video }) => {
   const {
     authState: { userLoggedIn },
   } = useAuth();
+  const { theme } = useTheme();
   const { modalOpen, setModalOpen } = useModal();
 
   const { _id, title, vidSrc } = video;
@@ -47,7 +49,9 @@ const VideoHorizontal = ({ video }) => {
       <article className='about-video flex flex-col'>
         <Link
           to={`/video/${_id}`}
-          className='h6 vid-title light-color'
+          className={`h6 vid-title ${
+            theme === 'dark' ? 'light' : 'dark'
+          }-color`}
           onClick={(e) => {
             userLoggedIn &&
               addToHistory({ video }).then((res) => {

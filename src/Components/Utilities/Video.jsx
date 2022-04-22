@@ -17,6 +17,7 @@ import { useHistory } from '../Providers/HistoryProvider';
 import { usePlaylists } from '../Providers/PlaylistsProvider';
 import { useAuth } from '../Providers/AuthProvider';
 import { useModal } from '../Providers/ModalProvider';
+import { useTheme } from '../Providers/ThemeProvider';
 import '../Styles/Video.css';
 import { infoPopup } from '../Misc/toasts';
 
@@ -29,6 +30,7 @@ const Video = ({ video }) => {
   const {
     authState: { userLoggedIn },
   } = useAuth();
+  const { theme } = useTheme();
   const { modalOpen, setModalOpen } = useModal();
 
   const { _id, title, vidSrc, creator, creatorImg } = video;
@@ -61,7 +63,9 @@ const Video = ({ video }) => {
         <img src={creatorImg} alt={creator} className='creator-img' />
         <Link
           to={`/video/${_id}`}
-          className='h5 vid-title light-color'
+          className={`h5 vid-title ${
+            theme === 'dark' ? 'light' : 'dark'
+          }-color`}
           onClick={(e) => {
             userLoggedIn &&
               addToHistory({ video }).then((res) => {
