@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useVideo } from '../Providers/VideoProvider';
 import { usePlaylists } from '../Providers/PlaylistsProvider';
+import { useAuth } from '../Providers/AuthProvider';
 import { useModal } from '../Providers/ModalProvider';
+import { useTheme } from '../Providers/ThemeProvider';
 import '../Styles/Modal.css';
 import { createPlaylist, addToPlaylist, getPlaylists } from '../Misc/requests';
+import { infoPopup } from '../Misc/toasts';
 
 const Modal = () => {
   const { videos } = useVideo();
@@ -11,6 +14,10 @@ const Modal = () => {
     playlistsState: { playlists },
     dispatchPlaylists,
   } = usePlaylists();
+  const {
+    authState: { userLoggedIn },
+  } = useAuth();
+  const { theme } = useTheme();
   const { modalOpen, setModalOpen } = useModal();
   const [currentVideo, setCurrentVideo] = useState(
     videos.filter((video) => video._id === modalOpen.id)[0]
@@ -28,13 +35,17 @@ const Modal = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    createPlaylist({ playlist: { title, description } }).then((res) => {
-      dispatchPlaylists({
-        type: 'UPDATE_PLAYLISTS',
-        payload: res,
+    if (userLoggedIn) {
+      createPlaylist({ playlist: { title, description } }).then((res) => {
+        dispatchPlaylists({
+          type: 'UPDATE_PLAYLISTS',
+          payload: res,
+        });
+        setFormData({ ...formData, title: '', description: '' });
       });
-      setFormData({ ...formData, title: '', description: '' });
-    });
+    } else {
+      infoPopup('Login or make an account to create a playlist!', theme);
+    }
   };
 
   useEffect(() => {
@@ -46,7 +57,7 @@ const Modal = () => {
       <section className='modal flex-center'>
         {currentVideo && modalOpen.id && (
           <aside className='modal-for-video flex-center flex-col align-start'>
-            <p className='h3 vid-title'>{currentVideo.title}</p>
+            <p className='h3 vid-title light-color'>{currentVideo.title}</p>
             <img
               src={`https://i.ytimg.com/vi/${currentVideo.vidSrc}/maxresdefault.jpg`}
               alt={currentVideo.title}
@@ -58,7 +69,7 @@ const Modal = () => {
                 alt={currentVideo.creator}
                 className='creator-img'
               />
-              <p className='h4'>{currentVideo.creator}</p>
+              <p className='h4 light-color'>{currentVideo.creator}</p>
             </div>
           </aside>
         )}
@@ -88,7 +99,7 @@ const Modal = () => {
           </form>
           <p className='h2 light-color'>Available Playlists</p>
           <div className='all-playlists'>
-            {playlists.length ? (
+            {userLoggedIn && playlists.length ? (
               playlists.map((playlist) => (
                 <div
                   key={playlist._id}

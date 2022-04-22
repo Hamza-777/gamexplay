@@ -77,7 +77,8 @@ const VideoHorizontal = ({ video }) => {
                     });
                   })
                 : infoPopup(
-                    'Login or make an account to add videos to watchlater!'
+                    'Login or make an account to add videos to watchlater!',
+                    theme
                   );
             }}
           />

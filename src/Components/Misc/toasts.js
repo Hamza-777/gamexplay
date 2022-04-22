@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const infoPopup = (message) => {
+const infoPopup = (message, theme) => {
   toast.info(message, {
     position: 'top-center',
     autoClose: 3000,
@@ -10,10 +10,11 @@ const infoPopup = (message) => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    theme: theme,
   });
 };
 
-const errorPopup = (message) => {
+const errorPopup = (message, theme) => {
   toast.error(message, {
     position: 'top-center',
     autoClose: 3000,
@@ -22,10 +23,11 @@ const errorPopup = (message) => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    theme: theme,
   });
 };
 
-const successPopup = (message) => {
+const successPopup = (message, theme) => {
   toast.success(message, {
     position: 'top-center',
     autoClose: 3000,
@@ -34,6 +36,7 @@ const successPopup = (message) => {
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
+    theme: theme,
   });
 };
 

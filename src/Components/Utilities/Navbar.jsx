@@ -22,7 +22,7 @@ const Navbar = () => {
       dispatchAuth({
         type: 'LOGGED_OUT',
       });
-      successPopup('Logged Out successfully!');
+      successPopup('Logged Out successfully!', theme);
       return <Navigate to='/login' />;
     }
   };

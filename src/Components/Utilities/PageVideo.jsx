@@ -5,6 +5,7 @@ import { useWatchLater } from '../Providers/WatchLaterProvider';
 import { useLiked } from '../Providers/LikedProvider';
 import { useAuth } from '../Providers/AuthProvider';
 import { useModal } from '../Providers/ModalProvider';
+import { useTheme } from '../Providers/ThemeProvider';
 import {
   addVideoToWatchLater,
   addToLiked,
@@ -18,6 +19,7 @@ const PageVideo = ({ currentVideo }) => {
   const {
     authState: { userLoggedIn },
   } = useAuth();
+  const { theme } = useTheme();
   const { modalOpen, setModalOpen } = useModal();
 
   const { _id, title, vidSrc, creator, creatorImg } = currentVideo;
@@ -50,7 +52,8 @@ const PageVideo = ({ currentVideo }) => {
                       });
                     })
                   : infoPopup(
-                      'Login or create an account to like/unlike videos!'
+                      'Login or create an account to like/unlike videos!',
+                      theme
                     );
               }}
             />
@@ -68,7 +71,8 @@ const PageVideo = ({ currentVideo }) => {
                     });
                   })
                 : infoPopup(
-                    'Login or make an account to add videos to watchlater!'
+                    'Login or make an account to add videos to watchlater!',
+                    theme
                   );
             }}
           />
@@ -84,7 +88,8 @@ const PageVideo = ({ currentVideo }) => {
                     });
                   })
                 : infoPopup(
-                    'Login or make an account to add videos to watchlater!'
+                    'Login or make an account to add videos to watchlater!',
+                    theme
                   );
             }}
           />

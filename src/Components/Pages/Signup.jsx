@@ -50,7 +50,7 @@ const Signup = () => {
         confirmPassword: '',
       });
     } else {
-      errorPopup('Passwords do not match!');
+      errorPopup('Passwords do not match!', theme);
       setFormData({ ...formData, password: '', confirmPassword: '' });
     }
     e.preventDefault();
