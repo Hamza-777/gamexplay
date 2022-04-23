@@ -1,0 +1,44 @@
+.profile-top {
+  padding: 2rem;
+  gap: 10rem;
+}
+
+.profile-top-left,
+.profile-email {
+  gap: 1rem;
+}
+
+.profile-img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 4px 4px 3.2px;
+}
+
+.profile-info,
+.profile-data {
+  width: 100%;
+  padding: 2rem;
+}
+
+.profile-info {
+  gap: 1rem;
+}
+
+.profile-data {
+  gap: 3rem;
+}
+
+.icon-stat {
+  padding: 1rem 2rem;
+  gap: 1rem;
+  border: 2px solid var(--red-color);
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 900px) {
+  .profile-top {
+    padding: 2rem;
+    gap: 1rem;
+  }
+}

@@ -4,7 +4,7 @@ import { useVideo } from '../Providers/VideoProvider';
 import { useTheme } from '../Providers/ThemeProvider';
 import Video from '../Utilities/Video';
 
-const Trending = () => {
+const Trending = ({ searchQuery }) => {
   const activeFilter = useRef('all');
   const {
     videoState: { vids },
@@ -104,7 +104,15 @@ const Trending = () => {
       </aside>
       <p className='h2'>Trending</p>
       <section className='trending-vids flex-center flex-row-wrap'>
-        {vids && vids.map((video) => <Video video={video} />)}
+        {vids &&
+          vids.map((video) =>
+            video.creator.toLowerCase().includes(searchQuery) ||
+            video.title.toLowerCase().includes(searchQuery) ? (
+              <Video video={video} />
+            ) : (
+              ''
+            )
+          )}
       </section>
     </main>
   );

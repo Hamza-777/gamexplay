@@ -7,6 +7,7 @@ const LoginSignup = () => {
   return (
     <main className='container sign-in-and-sign-up flex-center align-start'>
       <Login />
+      <hr className='hr hr-display' />
       <Signup />
     </main>
   );

@@ -2,6 +2,10 @@
   gap: 5rem;
 }
 
+.hr-display {
+  display: none;
+}
+
 .sign-in,
 .sign-up {
   padding: 2rem;
@@ -78,4 +82,20 @@ input[data-autocompleted] {
 .or {
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .sign-in-and-sign-up {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hr-display {
+    display: initial;
+  }
+
+  .sign-in,
+  .sign-up {
+    margin-inline: auto;
+  }
 }
