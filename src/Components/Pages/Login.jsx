@@ -2,9 +2,23 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../Providers/AuthProvider';
 import { useTheme } from '../Providers/ThemeProvider';
-import { sendLoginReq } from '../Misc/requests';
+import { useWatchLater } from '../Providers/WatchLaterProvider';
+import { useLiked } from '../Providers/LikedProvider';
+import { useHistory } from '../Providers/HistoryProvider';
+import { usePlaylists } from '../Providers/PlaylistsProvider';
+import {
+  sendLoginReq,
+  getHistory,
+  getLiked,
+  getPlaylists,
+  getWatchLaters,
+} from '../Misc/requests';
 
 const Login = () => {
+  const { dispatchWatchLater } = useWatchLater();
+  const { dispatchLiked } = useLiked();
+  const { dispatchHistory } = useHistory();
+  const { dispatchPlaylists } = usePlaylists();
   const { dispatchAuth } = useAuth();
   const { theme } = useTheme();
   const [goto, setGoto] = useState(false);
@@ -33,6 +47,30 @@ const Login = () => {
       });
       setGoto(res === undefined ? false : true);
     });
+    getHistory().then((res) => {
+      dispatchHistory({
+        type: 'GET_HISTORY',
+        payload: res,
+      });
+    });
+    getWatchLaters().then((res) => {
+      dispatchWatchLater({
+        type: 'GET_WATCHLATERS',
+        payload: res,
+      });
+    });
+    getLiked().then((res) => {
+      dispatchLiked({
+        type: 'GET_LIKED',
+        payload: res,
+      });
+    });
+    getPlaylists().then((res) => {
+      dispatchPlaylists({
+        type: 'UPDATE_PLAYLISTS',
+        payload: res,
+      });
+    });
     setFormData({ ...formData, email: '', password: '' });
     e.preventDefault();
   };
@@ -47,6 +85,30 @@ const Login = () => {
         payload: res === undefined ? null : res,
       });
       setGoto(res === undefined ? false : true);
+    });
+    getHistory().then((res) => {
+      dispatchHistory({
+        type: 'GET_HISTORY',
+        payload: res,
+      });
+    });
+    getWatchLaters().then((res) => {
+      dispatchWatchLater({
+        type: 'GET_WATCHLATERS',
+        payload: res,
+      });
+    });
+    getLiked().then((res) => {
+      dispatchLiked({
+        type: 'GET_LIKED',
+        payload: res,
+      });
+    });
+    getPlaylists().then((res) => {
+      dispatchPlaylists({
+        type: 'UPDATE_PLAYLISTS',
+        payload: res,
+      });
     });
   };
 

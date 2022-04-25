@@ -12,7 +12,7 @@ const Liked = () => {
   return (
     <main className='container liked flex-center flex-col align-start'>
       <p className='h2'>Liked</p>
-      {likedVideos.length ? (
+      {likedVideos && likedVideos.length ? (
         <section className='liked-vids flex-center flex-row-wrap'>
           {likedVideos &&
             likedVideos.map((video) => <Video key={video._id} video={video} />)}

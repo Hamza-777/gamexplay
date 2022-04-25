@@ -70,19 +70,19 @@ const Profile = () => {
       <div className='profile-data flex-center flex-row-wrap'>
         <section className='icon-stat flex-center'>
           <AiOutlineLike className='icon' />
-          <p className='h5'>{likedVideos.length}</p>
+          <p className='h5'>{likedVideos && likedVideos.length}</p>
         </section>
         <section className='icon-stat flex-center'>
           <VscHistory className='icon' />
-          <p className='h5'>{historyVideos.length}</p>
+          <p className='h5'>{historyVideos && historyVideos.length}</p>
         </section>
         <section className='icon-stat flex-center'>
           <MdOutlineWatchLater className='icon' />
-          <p className='h5'>{watchlaterVideos.length}</p>
+          <p className='h5'>{watchlaterVideos && watchlaterVideos.length}</p>
         </section>
         <section className='icon-stat flex-center'>
           <MdPlaylistAdd className='icon' />
-          <p className='h5'>{playlists.length}</p>
+          <p className='h5'>{playlists && playlists.length}</p>
         </section>
       </div>
     </main>

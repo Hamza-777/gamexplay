@@ -12,7 +12,7 @@ const History = () => {
   return (
     <main className='container history flex-center flex-col align-start'>
       <p className='h2'>History</p>
-      {historyVideos.length ? (
+      {historyVideos && historyVideos.length ? (
         <section className='history-vids flex-center flex-row-wrap'>
           {historyVideos &&
             historyVideos.map((video) => (

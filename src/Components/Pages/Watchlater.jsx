@@ -9,10 +9,12 @@ const Watchlater = () => {
     watchLaterState: { watchlaterVideos },
   } = useWatchLater();
 
+  console.log(watchlaterVideos);
+
   return (
     <main className='container watchlater flex-center flex-col align-start'>
       <p className='h2'>Watchlater</p>
-      {watchlaterVideos.length ? (
+      {watchlaterVideos && watchlaterVideos.length ? (
         <section className='watchlater-vids flex-center flex-row-wrap'>
           {watchlaterVideos &&
             watchlaterVideos.map((video) => (

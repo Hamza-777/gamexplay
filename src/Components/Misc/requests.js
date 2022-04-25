@@ -64,6 +64,20 @@ const removeFromWatchLater = async (id) => {
   }
 };
 
+const getWatchLaters = async () => {
+  const config = {
+    headers: {
+      authorization: getAuth(),
+    },
+  };
+  try {
+    const response = await axios.get(`/api/user/watchlater`, config);
+    return response.data.watchlater;
+  } catch (err) {
+    return;
+  }
+};
+
 const addToLiked = async (body) => {
   const config = {
     headers: {
@@ -98,6 +112,20 @@ const removeFromLiked = async (id) => {
   }
 };
 
+const getLiked = async () => {
+  const config = {
+    headers: {
+      authorization: getAuth(),
+    },
+  };
+  try {
+    const response = await axios.get(`/api/user/likes`, config);
+    return response.data.likes;
+  } catch (err) {
+    return;
+  }
+};
+
 const addToHistory = async (body) => {
   const config = {
     headers: {
@@ -124,6 +152,20 @@ const removeFromHistory = async (id) => {
     return response.data.history;
   } catch (err) {
     errorPopup('No such user exists!', getTheme());
+  }
+};
+
+const getHistory = async () => {
+  const config = {
+    headers: {
+      authorization: getAuth(),
+    },
+  };
+  try {
+    const response = await axios.get(`/api/user/history`, config);
+    return response.data.history;
+  } catch (err) {
+    return;
   }
 };
 
@@ -208,7 +250,7 @@ const getPlaylists = async () => {
     const response = await axios.get(`/api/user/playlists`, config);
     return response.data.playlists;
   } catch (err) {
-    errorPopup('No such user exists!', getTheme());
+    return;
   }
 };
 
@@ -217,10 +259,13 @@ export {
   sendSignupReq,
   addVideoToWatchLater,
   removeFromWatchLater,
+  getWatchLaters,
   addToLiked,
   removeFromLiked,
+  getLiked,
   addToHistory,
   removeFromHistory,
+  getHistory,
   createPlaylist,
   deletePlaylist,
   addToPlaylist,

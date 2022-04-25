@@ -71,7 +71,7 @@ const PageVideo = ({ currentVideo }) => {
                     });
                   })
                 : infoPopup(
-                    'Login or make an account to add videos to watchlater!',
+                    'Login or create an account to like/unlike videos!',
                     theme
                   );
             }}
