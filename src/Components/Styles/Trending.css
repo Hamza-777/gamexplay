@@ -65,4 +65,8 @@
   .filter-options {
     justify-content: flex-start;
   }
+
+  .trending {
+    margin-top: 140px;
+  }
 }

@@ -27,7 +27,7 @@ const Playlists = () => {
           + Create New
         </button>
       </section>
-      {playlists.length ? (
+      {playlists && playlists.length ? (
         <section className='playlists-all flex-center flex-row-wrap'>
           {playlists.map((playlist) => (
             <div key={playlist._id} className='playlist-item flex flex-col'>

@@ -18,6 +18,27 @@
   font-family: var(--font-grapenuts);
 }
 
+.navbar-mid {
+  gap: 1rem;
+  border-bottom: 2px solid var(--red-color);
+}
+
+.search-bar {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 20rem;
+}
+
 .navbar-right {
   gap: 3rem;
+}
+
+@media screen and (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

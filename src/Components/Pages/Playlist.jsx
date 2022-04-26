@@ -22,14 +22,14 @@ const Playlist = () => {
     <main className='container playlists flex-center flex-col align-start'>
       <section className='playlists-head flex-center justify-between'>
         <p className='h2'>
-          Playlist {`> [${currentPlaylist && currentPlaylist.title}]`}
+          Playlist {`/ ${currentPlaylist && currentPlaylist.title}`}
         </p>
         <Link to='/playlists' className='btn btn-outline'>
           Back
         </Link>
       </section>
-      <p className='h4'>
-        About: {currentPlaylist && currentPlaylist.description}
+      <p className='h3'>
+        {`Description > ${currentPlaylist && currentPlaylist.description}`}
       </p>
       {currentPlaylist && currentPlaylist.videos.length ? (
         <section className='playlist-vids flex-center flex-row-wrap'>

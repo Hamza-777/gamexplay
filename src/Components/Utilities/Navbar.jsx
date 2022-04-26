@@ -2,13 +2,16 @@ import React from 'react';
 import '../Styles/Navbar.css';
 import NavControls from './NavControls';
 import { BsSunFill, BsMoonFill } from 'react-icons/bs';
-import { Link, Navigate } from 'react-router-dom';
+import { FcSearch } from 'react-icons/fc';
+import { FaRegUserCircle } from 'react-icons/fa';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../Providers/ThemeProvider';
 import { useAuth } from '../Providers/AuthProvider';
 import { removeAuth, removeUser } from '../Misc/localStorage';
 import { successPopup } from '../Misc/toasts';
 
-const Navbar = () => {
+const Navbar = ({ getSearchQuery }) => {
+  const location = useLocation().pathname;
   const { theme, setTheme } = useTheme();
   const {
     authState: { userLoggedIn },
@@ -37,7 +40,32 @@ const Navbar = () => {
             </h1>
           </Link>
         </div>
+        {location === '/trending' && (
+          <div className='navbar-mid flex-center'>
+            <FcSearch className='icon' />
+            <input
+              type='search'
+              placeholder='Search for a video by creator or title...'
+              className={`search-bar ${
+                theme === 'dark' ? 'light' : 'dark'
+              }-color`}
+              onChange={(e) => getSearchQuery(e.target.value)}
+            />
+          </div>
+        )}
         <div className='navbar-right flex-center'>
+          {userLoggedIn && (
+            <Link to='/profile' className='flex-center'>
+              <FaRegUserCircle
+                className={`icon ${theme === 'dark' ? 'light' : 'dark'}-color`}
+              />
+            </Link>
+          )}
+          {theme === 'dark' ? (
+            <BsSunFill className='icon' onClick={(e) => setTheme('light')} />
+          ) : (
+            <BsMoonFill className='icon' onClick={(e) => setTheme('dark')} />
+          )}
           <Link
             to='/login-signup'
             name={userLoggedIn ? 'Logout' : 'LogIn'}
@@ -46,11 +74,6 @@ const Navbar = () => {
           >
             {userLoggedIn ? 'Logout' : 'LogIn'}
           </Link>
-          {theme === 'dark' ? (
-            <BsSunFill className='icon' onClick={(e) => setTheme('light')} />
-          ) : (
-            <BsMoonFill className='icon' onClick={(e) => setTheme('dark')} />
-          )}
         </div>
       </nav>
       <NavControls />
