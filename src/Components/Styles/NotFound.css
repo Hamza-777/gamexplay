@@ -1,0 +1,13 @@
+.not-found {
+	min-height: 50vh;
+	margin-top: 1rem;
+}
+
+.not-found > .h1 {
+	font-size: 15rem;
+	color: var(--red-color);
+}
+
+.not-found > .h3 {
+	font-size: 3rem;
+}
